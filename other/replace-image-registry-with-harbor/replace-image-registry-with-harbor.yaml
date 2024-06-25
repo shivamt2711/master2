@@ -46,7 +46,7 @@ spec:
                 initContainers:
                   - name: "{{ element.name }}"
                     image: harbor.example.com/k8s/{{imageData.repository}}:{{imageData.identifier}}
-          - list: request.object.spec.containers[]
+          - list: request.object.spec.[ephemeralContainers, initContainers, containers][]
             context:
               - name: imageData
                 imageRegistry:
